@@ -14,7 +14,7 @@ if not(AllFileExisted)
 end
 %   导入图片序列信息
 GetFileInfo
-%   获取实验序号，其格式为Eyymmdd-n
+%   通过文件夹名称获取实验序号，其格式为Eyymmdd-n
 ExpSN = PathName((end-9):(end-1));
 %   检查当前工作空间中实验数据集ExpDataSet是否存在
 if not(exist('ExpDataSet', 'var'))
@@ -40,3 +40,5 @@ for i = 1:3
     % 输出数据
     ExpDataSet(NumExp+1).ExpLog(i) = ExpLog;
 end
+%   保存工作空间变量为MAT文件
+save('ExpDataSet.mat', 'ExpDataSet');
