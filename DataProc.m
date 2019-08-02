@@ -9,10 +9,10 @@
 %
 clear;
 %  从结构化数据变量ExpData中构造数据矩阵
-load('ExpData.mat');
-col1 = [ExpData(1).FluxEvo(1).ElapTime, ExpData(1).FluxEvo(1).Flux];
-col2 = [ExpData(1).FluxEvo(2).ElapTime, ExpData(1).FluxEvo(2).Flux];
-col3 = [ExpData(1).FluxEvo(3).ElapTime, ExpData(1).FluxEvo(3).Flux];
+load('ExpDataSet.mat');
+col1 = [ExpDataSet(2).ExpLog(1).ElapTime, ExpDataSet(2).ExpLog(1).Flux];
+col2 = [ExpDataSet(2).ExpLog(2).ElapTime, ExpDataSet(2).ExpLog(2).Flux];
+col3 = [ExpDataSet(2).ExpLog(3).ElapTime, ExpDataSet(2).ExpLog(3).Flux];
 %  从数据矩阵中提取数据
 matout = [DataExtract(col1, 20), DataExtract(col2, 20), DataExtract(col3, 20)];
 %  输出结果
