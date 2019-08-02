@@ -8,11 +8,12 @@
 %% 脚本DataProc.m
 %
 clear;
-%  从结构化数据变量ExpData中构造数据矩阵
+%  从工作空间数据变量ExpDataSet中提取最新的数据子集构造数据矩阵
 load('ExpDataSet.mat');
-col1 = [ExpDataSet(2).ExpLog(1).ElapTime, ExpDataSet(2).ExpLog(1).Flux];
-col2 = [ExpDataSet(2).ExpLog(2).ElapTime, ExpDataSet(2).ExpLog(2).Flux];
-col3 = [ExpDataSet(2).ExpLog(3).ElapTime, ExpDataSet(2).ExpLog(3).Flux];
+i = length(ExpDataSet);
+col1 = [ExpDataSet(i).ExpLog(1).ElapTime, ExpDataSet(i).ExpLog(1).Flux];
+col2 = [ExpDataSet(i).ExpLog(2).ElapTime, ExpDataSet(i).ExpLog(2).Flux];
+col3 = [ExpDataSet(i).ExpLog(3).ElapTime, ExpDataSet(i).ExpLog(3).Flux];
 %  从数据矩阵中提取数据
 matout = [DataExtract(col1, 20), DataExtract(col2, 20), DataExtract(col3, 20)];
 %  输出结果
